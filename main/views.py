@@ -36,7 +36,7 @@ def login(request):
                 messages.success(request, ('Đăng nhập thành công!'))
                 return redirect('home')
             else:
-                messages.success(request, ('Tên tài khoản hoặc mật khẩu không đúng! Xin hãy thử lại!'))
+                messages.error(request, ('Tên đăng nhập hoặc mật khẩu không đúng!'))
                 return redirect('login')
         return render(request, 'main/login.html')
 
