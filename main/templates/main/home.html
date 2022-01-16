@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,20 +10,476 @@
             integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
             crossorigin="anonymous"
         />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
+        />
+        <link rel="stylesheet" href="../static/main/css/welcome.css" />
     </head>
     <body>
         {% csrf_token %}
-        <h1>Home</h1>
-        <a class="hello-msg" href="{% url 'logout' %}">Đăng xuất</a>
-        <script
-            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-            integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
-            crossorigin="anonymous"
-        ></script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-            integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
-            crossorigin="anonymous"
-        ></script>
+        <!-- Navbar -->
+        <nav class="navbar navbar-light static-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">PyLearn</a>
+                <div>
+                    <a class="btn btn-primary" href="{% url 'logout' %}"
+                        >Đăng xuất</a
+                    >
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-4 px-lg-5 my-3">
+                <div class="text-center text-white">
+                    <h1 class="display-4 fw-bolder">Lập trình Python</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">
+                        với những bài tập được chọn lọc và cập nhật thường xuyên
+                    </p>
+                </div>
+            </div>
+        </header>
+        <!-- Section-->
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
+                <div
+                    class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
+                >
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Exercise image-->
+                            <img
+                                class="card-img-top"
+                                src="../static/main/img/1200px-Python-logo-notext.svg.png"
+                                alt="Exercise_1"
+                            />
+                            <!-- Exercise details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Exercise name-->
+                                    <h5 class="fw-bolder">Character Input</h5>
+                                </div>
+                            </div>
+                            <!-- Exercise actions-->
+                            <div
+                                class="card-footer p-4 pt-0 border-top-0 bg-transparent"
+                            >
+                                <div class="text-center">
+                                    <a
+                                        class="btn btn-outline-dark mt-auto"
+                                        href="#"
+                                        >Open</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Complete badge-->
+                            <div
+                                class="badge bg-dark text-white position-absolute"
+                                style="top: 0.5rem; right: 0.5rem"
+                            >
+                                Complete
+                            </div>
+                            <!-- Exercise image-->
+                            <img
+                                class="card-img-top"
+                                src="../static/main/img/1200px-Python-logo-notext.svg.png"
+                                alt="..."
+                            />
+                            <!-- Exercise details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Exercise name-->
+                                    <h5 class="fw-bolder">
+                                        Rock Paper Scissors
+                                    </h5>
+                                </div>
+                            </div>
+                            <!-- Exercise actions-->
+                            <div
+                                class="card-footer p-4 pt-0 border-top-0 bg-transparent"
+                            >
+                                <div class="text-center">
+                                    <a
+                                        class="btn btn-outline-dark mt-auto"
+                                        href="#"
+                                        >Open</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Complete badge-->
+                            <div
+                                class="badge bg-dark text-white position-absolute"
+                                style="top: 0.5rem; right: 0.5rem"
+                            >
+                                Complete
+                            </div>
+                            <!-- Exercise image-->
+                            <img
+                                class="card-img-top"
+                                src="../static/main/img/1200px-Python-logo-notext.svg.png"
+                                alt="..."
+                            />
+                            <!-- Exercise details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Exercise name-->
+                                    <h5 class="fw-bolder">Divisors</h5>
+                                </div>
+                            </div>
+                            <!-- Exercise actions-->
+                            <div
+                                class="card-footer p-4 pt-0 border-top-0 bg-transparent"
+                            >
+                                <div class="text-center">
+                                    <a
+                                        class="btn btn-outline-dark mt-auto"
+                                        href="#"
+                                        >Open</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Exercise image-->
+                            <img
+                                class="card-img-top"
+                                src="../static/main/img/1200px-Python-logo-notext.svg.png"
+                                alt="..."
+                            />
+                            <!-- Exercise details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Exercise name-->
+                                    <h5 class="fw-bolder">
+                                        List Remove Duplicates
+                                    </h5>
+                                </div>
+                            </div>
+                            <!-- Exercise actions-->
+                            <div
+                                class="card-footer p-4 pt-0 border-top-0 bg-transparent"
+                            >
+                                <div class="text-center">
+                                    <a
+                                        class="btn btn-outline-dark mt-auto"
+                                        href="#"
+                                        >Open</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Complete badge-->
+                            <div
+                                class="badge bg-dark text-white position-absolute"
+                                style="top: 0.5rem; right: 0.5rem"
+                            >
+                                Complete
+                            </div>
+                            <!-- Exercise image-->
+                            <img
+                                class="card-img-top"
+                                src="../static/main/img/1200px-Python-logo-notext.svg.png"
+                                alt="..."
+                            />
+                            <!-- Exercise details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Exercise name-->
+                                    <h5 class="fw-bolder">List Overlap</h5>
+                                </div>
+                            </div>
+                            <!-- Exercise actions-->
+                            <div
+                                class="card-footer p-4 pt-0 border-top-0 bg-transparent"
+                            >
+                                <div class="text-center">
+                                    <a
+                                        class="btn btn-outline-dark mt-auto"
+                                        href="#"
+                                        >Open</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Exercise image-->
+                            <img
+                                class="card-img-top"
+                                src="../static/main/img/1200px-Python-logo-notext.svg.png"
+                                alt="..."
+                            />
+                            <!-- Exercise details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Exercise name-->
+                                    <h5 class="fw-bolder">String Lists</h5>
+                                </div>
+                            </div>
+                            <!-- Exercise actions-->
+                            <div
+                                class="card-footer p-4 pt-0 border-top-0 bg-transparent"
+                            >
+                                <div class="text-center">
+                                    <a
+                                        class="btn btn-outline-dark mt-auto"
+                                        href="#"
+                                        >Open</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Complete badge-->
+                            <div
+                                class="badge bg-dark text-white position-absolute"
+                                style="top: 0.5rem; right: 0.5rem"
+                            >
+                                Complete
+                            </div>
+                            <!-- Exercise image-->
+                            <img
+                                class="card-img-top"
+                                src="../static/main/img/1200px-Python-logo-notext.svg.png"
+                                alt="..."
+                            />
+                            <!-- Exercise details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Exercise name-->
+                                    <h5 class="fw-bolder">
+                                        Check Primality Functions
+                                    </h5>
+                                </div>
+                            </div>
+                            <!-- Exercise actions-->
+                            <div
+                                class="card-footer p-4 pt-0 border-top-0 bg-transparent"
+                            >
+                                <div class="text-center">
+                                    <a
+                                        class="btn btn-outline-dark mt-auto"
+                                        href="#"
+                                        >Open</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Exercise image-->
+                            <img
+                                class="card-img-top"
+                                src="../static/main/img/1200px-Python-logo-notext.svg.png"
+                                alt="..."
+                            />
+                            <!-- Exercise details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Exercise name-->
+                                    <h5 class="fw-bolder">
+                                        Reverse Word Order
+                                    </h5>
+                                </div>
+                            </div>
+                            <!-- Exercise actions-->
+                            <div
+                                class="card-footer p-4 pt-0 border-top-0 bg-transparent"
+                            >
+                                <div class="text-center">
+                                    <a
+                                        class="btn btn-outline-dark mt-auto"
+                                        href="#"
+                                        >Open</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Complete badge-->
+                            <!-- Exercise image-->
+                            <img
+                                class="card-img-top"
+                                src="../static/main/img/1200px-Python-logo-notext.svg.png"
+                                alt="..."
+                            />
+                            <!-- Exercise details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Exercise name-->
+                                    <h5 class="fw-bolder">Fibonacci</h5>
+                                </div>
+                            </div>
+                            <!-- Exercise actions-->
+                            <div
+                                class="card-footer p-4 pt-0 border-top-0 bg-transparent"
+                            >
+                                <div class="text-center">
+                                    <a
+                                        class="btn btn-outline-dark mt-auto"
+                                        href="#"
+                                        >Open</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Complete badge-->
+                            <!-- Exercise image-->
+                            <img
+                                class="card-img-top"
+                                src="../static/main/img/1200px-Python-logo-notext.svg.png"
+                                alt="..."
+                            />
+                            <!-- Exercise details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Exercise name-->
+                                    <h5 class="fw-bolder">
+                                        Birthday Dictionaries
+                                    </h5>
+                                </div>
+                            </div>
+                            <!-- Exercise actions-->
+                            <div
+                                class="card-footer p-4 pt-0 border-top-0 bg-transparent"
+                            >
+                                <div class="text-center">
+                                    <a
+                                        class="btn btn-outline-dark mt-auto"
+                                        href="#"
+                                        >Open</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Complete badge-->
+                            <!-- Exercise image-->
+                            <img
+                                class="card-img-top"
+                                src="../static/main/img/1200px-Python-logo-notext.svg.png"
+                                alt="..."
+                            />
+                            <!-- Exercise details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Exercise name-->
+                                    <h5 class="fw-bolder">
+                                        Calculate variance
+                                    </h5>
+                                </div>
+                            </div>
+                            <!-- Exercise actions-->
+                            <div
+                                class="card-footer p-4 pt-0 border-top-0 bg-transparent"
+                            >
+                                <div class="text-center">
+                                    <a
+                                        class="btn btn-outline-dark mt-auto"
+                                        href="#"
+                                        >Open</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Complete badge-->
+                            <!-- Exercise image-->
+                            <img
+                                class="card-img-top"
+                                src="../static/main/img/1200px-Python-logo-notext.svg.png"
+                                alt="..."
+                            />
+                            <!-- Exercise details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Exercise name-->
+                                    <h5 class="fw-bolder">Divisible by 5</h5>
+                                </div>
+                            </div>
+                            <!-- Exercise actions-->
+                            <div
+                                class="card-footer p-4 pt-0 border-top-0 bg-transparent"
+                            >
+                                <div class="text-center">
+                                    <a
+                                        class="btn btn-outline-dark mt-auto"
+                                        href="#"
+                                        >Open</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <!-- Complete badge-->
+                            <!-- Exercise image-->
+                            <img
+                                class="card-img-top"
+                                src="../static/main/img/1200px-Python-logo-notext.svg.png"
+                                alt="..."
+                            />
+                            <!-- Exercise details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Exercise name-->
+                                    <h5 class="fw-bolder">Make Dictionary</h5>
+                                </div>
+                            </div>
+                            <!-- Exercise actions-->
+                            <div
+                                class="card-footer p-4 pt-0 border-top-0 bg-transparent"
+                            >
+                                <div class="text-center">
+                                    <a
+                                        class="btn btn-outline-dark mt-auto"
+                                        href="#"
+                                        >Open</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="py-4 bg-dark">
+            <div class="container">
+                <p class="m-0 text-center text-white">
+                    Copyright &copy; PyLearn 2021
+                </p>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
