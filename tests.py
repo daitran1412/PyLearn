@@ -11,7 +11,6 @@ def correct_charInput(name, age):
     year = str((2021 - age) + 100)
     return(name + " will be 100 years old in the year " + year)
 
-
 # Exercise 2: Fibonacci
 def correct_fib(n):	
 	if n==1 or n == 2:

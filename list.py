@@ -43,7 +43,7 @@ Problems = [
     },
     {
         "id": 8,
-        "title": "Check Primality Functions",
+        "title": "Check Primality",
         "description": "Viết hàm nhận 1 số và kiểm tra xem số đó có phải là số nguyên tố hay không, trả về True hoặc False.(Số nguyên tố chỉ có 2 ước 1 và chính nó)",
         "starter": "def checkPrimality(num):\n\tpass",
     },
