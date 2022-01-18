@@ -6,6 +6,7 @@ from django.http.response import HttpResponse, JsonResponse
 from subprocess import Popen
 import subprocess
 from .forms import CreateUserForm
+from .models import Passed
 from list import Problems
 
 # Create your views here.
@@ -51,6 +52,16 @@ def logout(request):
 @login_required(login_url='login')
 def home(request):
     return render(request, 'main/home.html')
+
+@login_required(login_url='login')
+def problems(request):
+    problems = Problems.copy()
+    for prob in problems:
+        if Passed.objects.filter(user_id=request.user.id, problem_id=prob['id']).exists():
+            prob['passed'] = True
+        else:
+            prob['passed'] = False
+    return JsonResponse(problems, safe=False)
 
 @login_required(login_url='login')
 def editor(request, problem_id):
@@ -103,9 +114,11 @@ def run(request):
     output = run.communicate()[0].decode("utf-8")
 
     msg = ''
+    passed = False
 
     if 'OK' in output:
         msg = 'Tất cả test đều đúng! Bạn đã hoàn thành bài tập!'
+        passed = True
     elif 'FAILED (failures=1)' in output:
         msg = 'Có 1 test chưa đúng! Hãy kiểm tra kết quả!'
     elif 'FAILED (failures=2)' in output:
@@ -115,4 +128,14 @@ def run(request):
     else:
         msg = 'Có lỗi xảy ra trong bài làm! Xin hãy thử lại!'
 
-    return JsonResponse({'msg': msg, 'output': output})
+    response = {
+        'msg': msg,
+        'output': output,
+        'passed': passed
+    }
+
+    if passed is True:
+        passed = Passed(user_id=request.user.id, problem_id=problem)
+        passed.save()
+
+    return JsonResponse(response)
