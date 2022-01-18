@@ -166,7 +166,7 @@ class charInput_check(unittest.TestCase):
 # fib
 class fib_check(unittest.TestCase):
     def test_1(self):
-        assert 0 == fib(1)
+        assert 1 == fib(1)
     def test_2(self):
         num = random_num(15)
         assert correct_fib(num) == fib(num)
