@@ -1,7 +1,7 @@
 # PyLearn
 ### Các thành phần cần cài đặt
 - Python (https://www.python.org/downloads/)
-- Django (Mở Command Prompt chạy lệnh: pip install django)
+- Django (Mở Command Prompt chạy lệnh: ```pip install django```)
 - Git (https://git-scm.com/download/win)
 
 ### Cách sử dụng
