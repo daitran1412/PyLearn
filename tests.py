@@ -2,7 +2,6 @@ import unittest
 import random
 from solution import *
 import math
-from numpy import double
 
 #------------https://www.practicepython.org---------------------------
 
@@ -109,16 +108,16 @@ def correct_birthdayDic(name):
 def mean(s):                    
     sum = 0
     for i in s:
-        sum += double(i)
-    tb = sum / double(len(s))
+        sum += i
+    tb = sum / len(s)
     return tb
 #variance
 def correct_variance(s):        
     tb = mean(s)
     a = 0
     for i in s:
-        a += math.pow(double(i) - tb, 2)
-    ps = a / double(len(s))
+        a += math.pow(i - tb, 2)
+    ps = a / len(s)
     return ps
 
 # Exercise 12: Divisible by 5
