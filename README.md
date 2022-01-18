@@ -9,12 +9,15 @@ Clone repo từ GitHub
 ```
 git clone https://github.com/hoangduong-hus/PyLearn.git
 ```
-Mở folder trong terminal và chạy
+Chạy trang web
+- Với Windows
 ```
+python manage.py migrate
 python manage.py runserver
 ```
-với Windows
+- Với Linux hoặc MacOS
 ```
+python3 manage.py migrate
 python3 manage.py runserver
 ```
-với Linux và MacOS
+Truy cập http://127.0.0.1:8000/ để sử dụng trang web
