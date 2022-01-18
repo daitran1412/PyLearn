@@ -38,7 +38,6 @@ def login(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 django_login(request, user)
-                messages.success(request, ('Đăng nhập thành công!'))
                 return redirect('home')
             else:
                 messages.error(request, ('Tên đăng nhập hoặc mật khẩu không đúng!'))
