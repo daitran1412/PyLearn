@@ -6,7 +6,7 @@ from django.http.response import HttpResponse, JsonResponse
 from subprocess import Popen
 import subprocess
 from .forms import CreateUserForm
-from .models import Passed
+from .models import Passed, Saved
 from list import Problems
 
 # Create your views here.
@@ -69,12 +69,36 @@ def editor(request, problem_id):
         Problems[problem_id - 1]
     except IndexError:
         return HttpResponse("Không có bài tập này!")
+    try:
+        saved_code = Saved.objects.get(user_id=request.user.id, problem_id=problem_id)
+    except:
+        return render(request, "main/editor.html", {
+            "title": Problems[problem_id-1]["title"],
+            "description": Problems[problem_id - 1]["description"],
+            "id": Problems[problem_id - 1]["id"],
+            "starter": Problems[problem_id-1]["starter"]
+        })
     return render(request, "main/editor.html", {
-        "title": Problems[problem_id - 1]["title"],
+        "title": Problems[problem_id-1]["title"],
         "description": Problems[problem_id - 1]["description"],
         "id": Problems[problem_id - 1]["id"],
-        "starter": Problems[problem_id - 1]["starter"]
+        "saved_code": saved_code
     })
+
+
+@login_required(login_url='login')
+def save(request):
+    code = request.GET["code"]
+    problem = int(request.GET["problem"])
+
+    try:
+        saved_code = Saved.objects.get(user_id=request.user.id, problem_id=problem)
+        saved_code = Saved.objects.filter(user_id=request.user.id, problem_id=problem).update(code=code)
+    except:
+        code_ = Saved(user_id=request.user.id, problem_id=problem, code=code)
+        code_.save()
+
+    return JsonResponse({"msg": "Đã lưu code!"})
 
 @login_required(redirect_field_name='login')
 def run(request):
@@ -120,18 +144,17 @@ def run(request):
         msg = 'Tất cả test đều đúng! Bạn đã hoàn thành bài tập!'
         passed = True
     elif 'FAILED (failures=1)' in output:
-        msg = 'Có 1 test chưa đúng! Hãy kiểm tra kết quả!'
+        msg = 'Có 1 test chưa đúng! Hãy kiểm tra đầu ra!'
     elif 'FAILED (failures=2)' in output:
-        msg = 'Có 2 test chưa đúng! Hãy kiểm tra kết quả!'
+        msg = 'Có 2 test chưa đúng! Hãy kiểm tra đầu ra!'
     elif 'FAILED (failures=3)' in output:
-        msg = 'Chưa có test nào đúng! Hãy kiểm tra kết quả!'
+        msg = 'Chưa có test nào đúng! Hãy kiểm tra đầu ra!'
     else:
         msg = 'Có lỗi xảy ra trong bài làm! Xin hãy thử lại!'
 
     response = {
         'msg': msg,
-        'output': output,
-        'passed': passed
+        'output': output
     }
 
     if passed is True:

@@ -6,3 +6,9 @@ class Passed(models.Model):
     # user_id, problem
     user_id = models.IntegerField()
     problem_id = models.IntegerField()
+
+class Saved(models.Model):
+    # user_id, problem
+    user_id = models.IntegerField()
+    problem_id = models.IntegerField()
+    code = models.TextField()
