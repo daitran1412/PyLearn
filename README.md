@@ -21,3 +21,5 @@ python3 manage.py migrate
 python3 manage.py runserver
 ```
 Truy cập http://127.0.0.1:8000/ để sử dụng trang web
+
+TeamWork: Pham Hoang Duong, Tran Dinh Dai, Man Tien Dung
